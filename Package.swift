@@ -1,19 +1,21 @@
-// swift-tools-version:5.3
-// The swift-tools-version declares the minimum version of Swift required to build this package.
-
+// swift-tools-version:5.0
 import PackageDescription
 
 let package = Package(
     name: "TTTAttributedLabel",
+    platforms: [.iOS(.v12)],
     products: [
-        .library(name: "TTTAttributedLabel", targets: ["TTTAttributedLabel"]),
+        .library(
+            name: "TTTAttributedLabel",
+            targets: ["TTTAttributedLabel"]
+        )
     ],
-    dependencies: [],
     targets: [
         .target(
             name: "TTTAttributedLabel",
-            dependencies: [],
-            path: "TTTAttributedLabel"
-        ),
+            path: "TTTAttributedLabel",
+            exclude: ["Example", "Carthage"],
+            publicHeadersPath: "."
+        )
     ]
 )
